@@ -48,4 +48,3 @@ class DevNull:
         pass
 
 
-sys.stderr = DevNull()
