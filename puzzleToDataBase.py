@@ -16,13 +16,19 @@ puzzles = db.puzzles
 
 def putInDb(rank,difficulty,qty):
     for i in range(qty):
-        post = {
-                'rank' : rank,
-                'difficulty' : difficulty,
-                'puzzle' : genPuzzles(rank,difficulty)
+        entered = False
+        while entered == False:
+            puzz = genPuzzles(rank,difficulty)
+            if type(puzzles.find_one({'puzzle': puzz}))!=dict:
+                post = {
+                    'rank' : rank,
+                    'difficulty' : difficulty,
+                    'puzzle' : puzz 
                 }
-        new_result = puzzles.insert_one( post )
-        print(" {} inserted".format(new_result.inserted_id))
+                new_result = puzzles.insert_one( post )
+                print(" {} inserted".format(new_result.inserted_id))
+            else:
+                print('duplicate')
     list(puzzles.find())
 
 
