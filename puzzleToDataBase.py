@@ -27,6 +27,7 @@ def putInDb(rank,difficulty,qty):
                 }
                 new_result = puzzles.insert_one( post )
                 print(" {} inserted".format(new_result.inserted_id))
+                entered = True
             else:
                 print('duplicate')
     list(puzzles.find())
