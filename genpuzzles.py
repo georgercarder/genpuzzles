@@ -9,16 +9,15 @@ from sudokugridgen import buildAndFinalizeAll
 import random
 
 
-def genPuzzles(rank,difficulty):
+def genPuzzles(rank,difficulty,B):
     generated = False
     while generated == False:
-        P=trypuzzle(rank,difficulty)
+        P=trypuzzle(rank,difficulty,B)
         if P!=[] and len(set(P))>=(rank**2):
             generated = True
     return P
 
-def trypuzzle(rank,difficulty):
-    B=buildAndFinalizeAll(rank)
+def trypuzzle(rank,difficulty,B):
     index=list(range(len(B)))
     random.shuffle(index)
     present=int((difficulty/10)*((rank**2)-1)+(1-difficulty/10)*(rank**4))

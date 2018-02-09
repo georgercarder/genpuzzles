@@ -15,10 +15,12 @@ db = client.SudokuDb
 puzzles = db.puzzles
 
 def putInDb(rank,difficulty,qty):
+    #here put buildAndFinalize(rank)  take out of genpuzz..
+    B=buildAndFinalize(rank) 
     for i in range(qty):
         entered = False
         while entered == False:
-            puzz = genPuzzles(rank,difficulty)
+            puzz = genPuzzles(rank,difficulty,B)
             if type(puzzles.find_one({'puzzle': puzz}))!=dict:
                 post = {
                     'rank' : rank,
