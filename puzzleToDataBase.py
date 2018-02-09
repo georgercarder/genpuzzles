@@ -14,9 +14,9 @@ db = client.SudokuDb
 
 puzzles = db.puzzles
 
-def putInDb(rank,difficulty,qty):
-    #here put buildAndFinalize(rank)  take out of genpuzz..
-    B=buildAndFinalize(rank) 
+#B=buildAndFinalizeAll(rank)
+
+def putInDb(rank, difficulty, qty, B):
     for i in range(qty):
         entered = False
         while entered == False:
