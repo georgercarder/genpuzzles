@@ -5,6 +5,7 @@
 
 from pymongo import MongoClient
 from genpuzzles import *
+from sudokugridgen import *
 
 # We build a database of Sudoku Puzzles
 
@@ -16,7 +17,7 @@ puzzles = db.puzzles
 
 def putInDb(rank,difficulty,qty):
     #here put buildAndFinalize(rank)  take out of genpuzz..
-    B=buildAndFinalize(rank) 
+    B=buildAndFinalizeAll(rank) 
     for i in range(qty):
         entered = False
         while entered == False:
