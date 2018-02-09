@@ -13,4 +13,5 @@ in python3 shell call
 
 `from puzzleToDataBase import *`
 
-`putInDb(rank,difficulty,qty)`
+`B=buildAndFinalizeAll(rank)` or `B=buildAndFinalizeAllLimit(rank,L)`
+`putInDb(rank, difficulty, qty, B)`
